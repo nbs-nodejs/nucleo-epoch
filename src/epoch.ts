@@ -46,28 +46,44 @@ export class Epoch {
         return new Epoch(this.t + sec);
     }
 
-    isGreaterThan(t: Date | Epoch): boolean {
+    isGreaterThan(t: Date | Epoch | number): boolean {
+        if (typeof t === "number") {
+            return this.t > t;
+        }
+
         if (t instanceof Date) {
             t = new Epoch(t);
         }
         return this.t > t.getEpoch();
     }
 
-    isGreaterThanEqual(t: Date | Epoch): boolean {
+    isGreaterThanEqual(t: Date | Epoch | number): boolean {
+        if (typeof t === "number") {
+            return this.t >= t;
+        }
+
         if (t instanceof Date) {
             t = new Epoch(t);
         }
         return this.t >= t.getEpoch();
     }
 
-    isLessThan(t: Date | Epoch): boolean {
+    isLessThan(t: Date | Epoch | number): boolean {
+        if (typeof t === "number") {
+            return this.t < t;
+        }
+
         if (t instanceof Date) {
             t = new Epoch(t);
         }
         return this.t < t.getEpoch();
     }
 
-    isLessThanEqual(t: Date | Epoch): boolean {
+    isLessThanEqual(t: Date | Epoch | number): boolean {
+        if (typeof t === "number") {
+            return this.t <= t;
+        }
+
         if (t instanceof Date) {
             t = new Epoch(t);
         }

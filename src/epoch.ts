@@ -3,7 +3,6 @@ export class Epoch {
     private readonly dt: Date;
 
     constructor(t?: Date | number | string) {
-        // If t is undefined, then set to now
         if (!t) {
             // If t is empty, then set to now
             this.dt = new Date();
@@ -83,6 +82,30 @@ export class Epoch {
     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     toJSON() {
         return this.t;
+    }
+
+    printYear(): string {
+        return this.dt.getUTCFullYear().toString();
+    }
+
+    printMonth(): string {
+        return (this.dt.getUTCMonth() + 1).toString().padStart(2, "0");
+    }
+
+    printDay(): string {
+        return this.dt.getUTCDate().toString().padStart(2, "0");
+    }
+
+    printHours(): string {
+        return this.dt.getUTCHours().toString().padStart(2, "0");
+    }
+
+    printMinutes(): string {
+        return this.dt.getUTCMinutes().toString().padStart(2, "0");
+    }
+
+    printSeconds(): string {
+        return this.dt.getUTCSeconds().toString().padStart(2, "0");
     }
 
     static readonly MINUTE = 60;

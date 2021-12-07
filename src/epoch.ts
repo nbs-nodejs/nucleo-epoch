@@ -1,41 +1,31 @@
 export class Epoch {
     private readonly t: number;
+    private readonly dt: Date;
 
     constructor(t?: Date | number | string) {
         // If t is undefined, then set to now
         if (!t) {
-            this.t = toUnixEpoch(new Date());
+            // If t is empty, then set to now
+            this.dt = new Date();
+        } else if (t instanceof Date) {
+            // If t is a date, then set dt
+            this.dt = t;
+        } else if (typeof t === "string") {
+            // If t is a string, then parse date string
+            this.dt = new Date(t);
+        } else {
+            // Else t is epoch
+            this.dt = toDate(t);
+            this.t = t;
             return;
         }
 
-        // If t is a Date, then convert to epoch
-        if (t instanceof Date) {
-            this.t = toUnixEpoch(t);
-            return;
-        }
-
-        // If t is a string, then parse as string using built-in new Date
-        if (typeof t === "string") {
-            // If string is empty, then set to now
-            if (t === "") {
-                this.t = toUnixEpoch(new Date());
-                return;
-            }
-
-            // Parse string
-            const d = new Date(t);
-            this.t = toUnixEpoch(d);
-            return;
-        }
-
-        // Else, set t
-        this.t = t;
+        // Set epoch timestamp value
+        this.t = toUnixEpoch(this.dt);
     }
 
     getDate(): Date {
-        const d = new Date(0);
-        d.setUTCSeconds(this.t);
-        return d;
+        return this.dt;
     }
 
     getEpoch(): number {

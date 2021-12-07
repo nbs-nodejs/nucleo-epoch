@@ -1,6 +1,6 @@
 {
   "name": "@nucleo-nodejs/epoch",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "description": "UNIX Epoch utilities for Node.js. Written in TypeScript.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

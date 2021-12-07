@@ -100,6 +100,12 @@ export class Epoch {
     static readonly DAY = 86400;
 }
 
+export function toDate(t: number): Date {
+    const dt = new Date(0);
+    dt.setUTCSeconds(t);
+    return dt;
+}
+
 export function toUnixEpoch(d: Date): number {
     return Math.round(d.getTime() / 1000);
 }

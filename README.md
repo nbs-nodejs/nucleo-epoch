@@ -1,4 +1,4 @@
-# @nucleo-nodejs/epoch
+# @nbsdev/nucleo-epoch
 
 UNIX Epoch utilities for Node.js. Written in TypeScript. 
 

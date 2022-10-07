@@ -1,5 +1,5 @@
 {
-  "name": "@nucleo-nodejs/epoch",
+  "name": "@nbsdev/nucleo-epoch",
   "version": "0.3.0",
   "description": "UNIX Epoch utilities for Node.js. Written in TypeScript.",
   "main": "lib/index.js",
